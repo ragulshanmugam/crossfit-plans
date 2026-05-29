@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrossFit — Today's Session</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Redirect to today's plan, named like 2026-05-28-Thursday.html (phone's local date).
+  (function () {
+    var now = new Date();
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var y = now.getFullYear();
+    var m = String(now.getMonth() + 1).padStart(2, "0");
+    var d = String(now.getDate()).padStart(2, "0");
+    var file = y + "-" + m + "-" + d + "-" + days[now.getDay()] + ".html";
+    // If today's plan exists, go to it; otherwise show the fallback message below.
+    fetch(file, { method: "HEAD" }).then(function (res) {
+      if (res.ok) { location.replace(file); }
+      else { document.getElementById("fallback").classList.remove("hidden"); document.getElementById("filename").textContent = file; }
+    }).catch(function () {
+      document.getElementById("fallback").classList.remove("hidden");
+      document.getElementById("filename").textContent = file;
+    });
+  })();
+</script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <div class="max-w-md mx-auto px-6 py-20 text-center">
+    <p class="text-sm uppercase tracking-widest text-slate-500 font-semibold">CrossFit</p>
+    <h1 class="mt-2 text-2xl font-extrabold">Loading today's session…</h1>
+    <div id="fallback" class="hidden mt-6">
+      <p class="text-slate-700">No plan published for today yet.</p>
+      <p class="mt-2 text-sm text-slate-500">Expected file: <code id="filename" class="font-mono"></code></p>
+    </div>
+  </div>
+</body>
+</html>
