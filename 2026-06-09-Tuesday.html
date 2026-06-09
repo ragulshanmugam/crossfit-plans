@@ -28,7 +28,7 @@
       <div class="mt-4 bg-white/10 rounded-xl px-4 py-3">
         <p class="text-sm text-slate-100"><span class="font-bold text-amber-300" id="overallPct">0%</span> session complete · <span id="overallCount">0 of 0</span> items checked</p>
         <div class="mt-2 h-2 w-full rounded-full bg-white/20 overflow-hidden">
-          <div id="overallBar" class="h-full w-0 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300"></div>
+          <div id="overallBar" class="h-full w-[0%] bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300"></div>
         </div>
       </div>
     </header>
@@ -636,7 +636,8 @@
       const pct = total ? Math.round(done / total * 100) : 0;
       document.getElementById('overallPct').textContent = pct + '%';
       document.getElementById('overallCount').textContent = done + ' of ' + total;
-      document.getElementById('overallBar').style.width = pct + '%';
+      const bar = document.getElementById('overallBar');
+      bar.className = bar.className.replace(/w-\[\d+%\]/, 'w-[' + pct + '%]');
       document.getElementById('summaryPct').textContent = pct + '%';
       document.getElementById('summaryCount').textContent = done + ' of ' + total + ' items complete';
     }
