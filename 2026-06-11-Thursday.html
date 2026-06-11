@@ -228,7 +228,18 @@
       <div class="px-5 py-4 md:px-6">
 
         <p class="text-base font-bold text-orange-700">AMRAP 16 minutes</p>
-        <p class="text-sm text-slate-600 mb-4">As many rounds + reps as possible. Hit <strong>Lap</strong> after each full round to track your splits.</p>
+        <p class="text-sm text-slate-600 mb-4">As many rounds + reps as possible. Run the <strong>16:00 countdown</strong> as your cap, and hit <strong>Lap</strong> on the stopwatch after each full round to track your splits.</p>
+
+        <!-- Countdown cap -->
+        <div id="timer-metcon" class="rounded-xl border-2 border-amber-200 bg-amber-50 p-4 mb-4 text-center" data-seconds="960">
+          <p class="text-xs font-bold uppercase tracking-wide text-amber-700 mb-1">AMRAP Cap</p>
+          <div class="timer-display text-4xl md:text-5xl font-mono font-bold text-amber-700">16:00</div>
+          <div class="mt-3 flex justify-center gap-2">
+            <button data-action="start" class="min-h-11 px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold transition">Start</button>
+            <button data-action="pause" class="min-h-11 px-4 py-2 rounded-lg bg-amber-200 hover:bg-amber-300 text-amber-800 font-bold transition">Pause</button>
+            <button data-action="reset" class="min-h-11 px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold transition">Reset</button>
+          </div>
+        </div>
 
         <!-- Stopwatch -->
         <div id="stopwatch" class="rounded-xl border-2 border-orange-200 bg-orange-50 p-4 mb-4 text-center">
