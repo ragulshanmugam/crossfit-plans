@@ -33,7 +33,7 @@
           <span id="totalPct" class="text-sm font-bold text-orange-600">0% complete</span>
         </div>
         <div class="mt-1 h-2.5 w-full rounded-full bg-slate-200 overflow-hidden">
-          <div id="totalBar" class="h-full w-0 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300"></div>
+          <div id="totalBar" class="h-full w-[0%] bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300"></div>
         </div>
       </div>
     </header>
@@ -481,7 +481,7 @@
         var pct = total ? Math.round((done / total) * 100) : 0;
         var pctTxt = pct + "% complete";
         var tp = document.getElementById("totalPct"); if (tp) tp.textContent = pctTxt;
-        var tb = document.getElementById("totalBar"); if (tb) tb.style.width = pct + "%";
+        var tb = document.getElementById("totalBar"); if (tb) tb.className = "h-full bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 w-[" + pct + "%]";
         var sp = document.getElementById("summaryPct"); if (sp) sp.textContent = pct + "%";
         var sc = document.getElementById("summaryCount"); if (sc) sc.textContent = done + " of " + total + " items checked";
       }
