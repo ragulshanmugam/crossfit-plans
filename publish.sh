@@ -21,6 +21,24 @@ trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT
 # Let a just-landed file finish writing before we touch it.
 sleep 2
 
+# --- Reap stale git locks -------------------------------------------------
+# Claude's sandbox mounts this folder without delete permission. Git creates
+# .git/index.lock, .git/HEAD.lock and .git/objects/*/tmp_obj_* during writes and
+# removes them with unlink() on cleanup paths -- which silently fails there,
+# leaving the repo permanently locked. Any lock older than 5 minutes cannot
+# belong to a live git process (this script is serialized by $LOCK), so reap it.
+reap_stale_locks() {
+  local stale
+  stale="$(find .git -maxdepth 3 \
+    \( -name '*.lock' -o -name 'tmp_obj_*' \) -mmin +5 -print 2>/dev/null || true)"
+  if [ -n "$stale" ]; then
+    echo "$(date '+%F %T') reaping stale git locks:"
+    echo "$stale" | sed 's/^/  /'
+    echo "$stale" | while IFS= read -r f; do rm -f "$f" 2>/dev/null || true; done
+  fi
+}
+reap_stale_locks
+
 # Strip HTML tags, quotes, angle brackets and collapse whitespace for safe embedding.
 sanitize() { printf '%s' "$1" | sed 's/<[^>]*>//g' | tr -d '"\\<>' | tr '\n\r\t' '   ' | sed 's/  */ /g; s/^ //; s/ $//'; }
 
@@ -172,9 +190,36 @@ if [ -z "$(git status --porcelain)" ]; then
   exit 0
 fi
 
-git add -A
-files="$(git diff --cached --name-only | tr '\n' ' ')"
-git -c user.name="ragulshanmugam" -c user.email="ragulshanmugam3@gmail.com" \
-  commit -m "Auto-publish: ${files}"
-git push origin main
-echo "$(date '+%F %T') published -> https://ragulshanmugam.github.io/crossfit-plans/"
+# --- Commit & push, retrying once through a fresh lock reap ---------------
+# `set -e` used to abort the script here the moment a stale lock existed, and
+# under launchd that exit code went nowhere -- days of workouts piled up with no
+# error. Now a failure reaps locks (ignoring age) and retries, then shouts.
+publish_attempt() {
+  git add -A || return 1
+  local files
+  files="$(git diff --cached --name-only | tr '\n' ' ')"
+  # Another process may have committed between our add and here; that's fine.
+  if [ -n "$(git diff --cached --name-only)" ]; then
+    git -c user.name="ragulshanmugam" -c user.email="ragulshanmugam3@gmail.com" \
+      commit -m "Auto-publish: ${files}" || return 1
+  fi
+  # Push whatever is unpushed, including commits made by earlier failed runs.
+  git push origin main || return 1
+  return 0
+}
+
+if publish_attempt; then
+  echo "$(date '+%F %T') published -> https://ragulshanmugam.github.io/crossfit-plans/"
+else
+  echo "$(date '+%F %T') publish failed -- reaping all locks and retrying once" >&2
+  find .git -maxdepth 3 \( -name '*.lock' -o -name 'tmp_obj_*' \) -delete 2>/dev/null || true
+  if publish_attempt; then
+    echo "$(date '+%F %T') published on retry -> https://ragulshanmugam.github.io/crossfit-plans/"
+  else
+    echo "$(date '+%F %T') PUBLISH STILL FAILING -- manual attention needed" >&2
+    # Make the failure impossible to miss: desktop notification + unpushed count.
+    ahead="$(git rev-list --count @{u}..HEAD 2>/dev/null || echo '?')"
+    /usr/bin/osascript -e "display notification \"crossfit-plans publish failed. ${ahead} commit(s) unpushed.\" with title \"Publish failed\"" 2>/dev/null || true
+    exit 1
+  fi
+fi
