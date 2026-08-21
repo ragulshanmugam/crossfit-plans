@@ -420,10 +420,16 @@
 
   /* ---------- Web Audio beep ---------- */
   var audioCtx = null;
-  function beep() {
+  function unlockAudio() {
     try {
       audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    } catch (e) { /* audio unavailable */ }
+  }
+  function beep() {
+    try {
+      unlockAudio();
+      if (!audioCtx) return;
       [0, 0.28, 0.56].forEach(function (offset) {
         var o = audioCtx.createOscillator();
         var g = audioCtx.createGain();
