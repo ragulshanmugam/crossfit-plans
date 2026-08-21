@@ -476,8 +476,7 @@
 
     card.querySelector('[data-timer-start]').addEventListener('click', function () {
       if (handle) return;
-      beep.call(null); // unlock audio context on user gesture
-      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      unlockAudio(); // audio must be armed by a user gesture
       handle = setInterval(function () {
         remaining -= 1;
         if (remaining <= 0) { remaining = 0; render(); stop(); beep(); flash(); return; }
@@ -493,13 +492,6 @@
     card._resetTimer = function () { stop(); remaining = total; render(); };
     render();
   });
-
-  /* Silence the accidental beep on the very first Start click */
-  (function () {
-    var origBeep = beep;
-    var first = true;
-    beep = function () { if (first) { first = false; try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} return; } origBeep(); };
-  })();
 
   /* ---------- Stopwatch + laps ---------- */
   var swDisplay = document.getElementById('swDisplay');
