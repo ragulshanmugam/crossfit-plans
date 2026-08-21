@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrossFit — Friday, August 21, 2026 · Power Clean + Ski/Sandbag/Sled Engine</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-900 antialiased">
+
+<div class="max-w-3xl mx-auto px-4 py-5 md:px-6 md:py-8">
+
+  <!-- ================= HEADER ================= -->
+  <header class="rounded-2xl shadow-lg overflow-hidden mb-6 bg-gradient-to-br from-slate-900 via-slate-800 to-red-800">
+    <div class="px-4 py-6 md:px-8 md:py-8">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <p class="text-xs md:text-sm font-semibold tracking-widest text-red-300 uppercase">Session 21 · Week 34</p>
+          <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mt-1">Friday, Aug 21</h1>
+          <p class="text-lg md:text-2xl font-bold text-orange-300 mt-1">Power Clean + Ski / Sandbag / Sled Engine</p>
+        </div>
+        <button id="resetSession" class="shrink-0 min-h-11 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/30 border border-white/30 text-white text-xs md:text-sm font-bold transition">↻ Reset<br class="md:hidden"> session</button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mt-5">
+        <span class="px-3 py-1.5 rounded-full bg-sky-500 text-white text-xs md:text-sm font-bold shadow">Intermediate</span>
+        <span class="px-3 py-1.5 rounded-full bg-emerald-500 text-white text-xs md:text-sm font-bold shadow">60 min</span>
+        <span class="px-3 py-1.5 rounded-full bg-violet-500 text-white text-xs md:text-sm font-bold shadow">Full gym</span>
+        <span class="px-3 py-1.5 rounded-full bg-amber-500 text-slate-900 text-xs md:text-sm font-bold shadow">Explosive pull</span>
+        <span class="px-3 py-1.5 rounded-full bg-rose-500 text-white text-xs md:text-sm font-bold shadow">No barbell overhead</span>
+      </div>
+
+      <p class="text-sm md:text-base text-slate-200 mt-5 leading-relaxed">
+        <span class="font-bold text-white">Focus:</span> Barbell power clean off the floor as the strength piece, then a low-skill mixed engine —
+        Ski, odd object, sled, trunk. Ski erg, sandbag and sled have not appeared all week, so the lungs work hard while the
+        joints get something new. Hips, hamstrings, glutes, traps, quads, posterior chain, trunk, lungs.
+      </p>
+
+      <div class="mt-5 rounded-xl bg-black/25 px-4 py-3">
+        <p class="text-xs md:text-sm font-mono text-slate-200">2 brief → 8 warm-up → 6 primer → 18 strength → 20 MetCon → 4 cooldown = <span class="text-orange-300 font-bold">58 min</span></p>
+      </div>
+
+      <div class="mt-5">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs md:text-sm font-bold text-slate-200 uppercase tracking-wide">Session completion</span>
+          <span id="globalPct" class="text-sm md:text-base font-black text-orange-300">0%</span>
+        </div>
+        <div class="w-full h-3 rounded-full bg-white/20 overflow-hidden">
+          <div id="globalBar" class="h-full w-0 bg-gradient-to-r from-orange-400 to-red-500 transition-all duration-300"></div>
+        </div>
+        <p id="globalCount" class="text-xs text-slate-300 mt-1.5 font-mono">0 of 0 items complete</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= BRIEFING ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-sky-600 to-cyan-500 px-4 py-4 md:px-6">
+      <h2 class="text-xl md:text-2xl font-black text-white">🔥 Briefing <span class="text-sky-100 font-semibold text-sm md:text-base">· 2 min</span></h2>
+    </div>
+    <div class="px-4 py-5 md:px-6 space-y-4">
+      <div>
+        <h3 class="text-base md:text-lg font-bold text-sky-800 mb-1">Where you are</h3>
+        <p class="text-base text-slate-700 leading-relaxed">
+          Monday was deadlift 5×5 plus burpee box jump-overs and double-unders. Tuesday was bench press and chest-supported
+          rows with a bike / lunge / V-up engine. Wednesday was back squat with a rower / kettlebell-swing / toes-to-bar grind.
+          Yesterday was weighted strict pull-ups, half-kneeling dumbbell press, and a zero-impact bike engine. Four hard days —
+          the legs have had a full 48 hours since the last squat and five days since the deadlift, and yesterday's session
+          deliberately kept everything out of the hips so today could happen.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-base md:text-lg font-bold text-sky-800 mb-1">Today's job</h3>
+        <p class="text-base text-slate-700 leading-relaxed">
+          Yesterday's plan promised power cleans back today, and they are the strength piece. This is the one barbell movement
+          that trains <span class="font-bold">rate of force development</span> — how fast you can express strength, not how much
+          you own. It finishes in the <span class="font-bold">front rack</span>, never overhead, which is exactly where this
+          program lives. Seven sets of two on a 90-second clock: heavy enough to be a real pull, light enough that every rep
+          looks like the last one.
+        </p>
+        <p class="text-base text-slate-700 leading-relaxed mt-2">
+          The MetCon then takes that same hip extension and puts it on an odd object at a fraction of the load. Ski erg,
+          sandbag over the shoulder, sled push and weighted sit-ups — four things that have not appeared once this week.
+          Low skill, high output, nothing technical to break down when you get tired. Four rounds, 18-minute cap.
+        </p>
+      </div>
+
+      <div class="rounded-xl border-2 border-sky-200 bg-sky-50 px-4 py-4">
+        <h4 class="text-sm font-black text-sky-900 uppercase tracking-wide mb-2">📋 Track these three</h4>
+        <ul class="space-y-2 text-sm md:text-base text-slate-700">
+          <li class="flex gap-2"><span class="text-sky-600 font-black">1.</span><span>Top load on the power clean where both reps caught in a <span class="font-semibold">full front rack with elbows up</span> and the feet landed quietly.</span></li>
+          <li class="flex gap-2"><span class="text-sky-600 font-black">2.</span><span>Whether any set turned into a reverse-curl or a muscle clean — if it did, that was the ceiling for the day, stop climbing.</span></li>
+          <li class="flex gap-2"><span class="text-sky-600 font-black">3.</span><span>All four MetCon round splits. Target is fastest and slowest within <span class="font-semibold">25 seconds</span> of each other.</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl bg-slate-100 border-l-4 border-slate-400 px-4 py-3">
+        <p class="text-sm text-slate-600 leading-relaxed">
+          <span class="font-bold text-slate-800">Deliberately spared today:</span> bilateral squatting (Wednesday's back squat),
+          horizontal pressing (Tuesday's bench), loaded vertical pulling and overhead pressing (yesterday's pull-ups and DB press),
+          and maximal hinging (Monday's deadlift). The sled and the Ski erg carry the leg work today so nothing lands on a
+          bent, loaded spine twice in one week. And as always — the barbell never goes overhead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WARM-UP ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6" data-section="warmup">
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-500 px-4 py-4 md:px-6 flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-xl md:text-2xl font-black text-white">🧘 Warm-Up / Mobility <span class="text-emerald-100 font-semibold text-sm md:text-base">· ~8 min</span></h2>
+      <span class="px-3 py-1 rounded-full bg-white/25 text-white text-xs md:text-sm font-bold font-mono" data-counter="warmup">0 of 0</span>
+    </div>
+
+    <div class="px-4 py-5 md:px-6">
+      <!-- timer -->
+      <div class="rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-4 mb-5 text-center" data-timer-card>
+        <div class="text-4xl md:text-5xl font-mono font-black text-emerald-700 tabular-nums" data-timer-display="480">08:00</div>
+        <div class="flex gap-2 justify-center mt-3 flex-wrap">
+          <button data-timer-start class="min-h-11 px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm shadow transition">▶ Start</button>
+          <button data-timer-pause class="min-h-11 px-5 py-2 rounded-xl bg-emerald-200 hover:bg-emerald-300 text-emerald-900 font-bold text-sm shadow transition">⏸ Pause</button>
+          <button data-timer-reset class="min-h-11 px-5 py-2 rounded-xl bg-white hover:bg-slate-100 border-2 border-emerald-300 text-emerald-800 font-bold text-sm shadow transition">↻ Reset</button>
+        </div>
+      </div>
+
+      <p class="text-sm md:text-base text-slate-600 mb-4 italic">Move through once, unhurried. Priority is the front rack and the ankles — you cannot catch a clean you cannot rack.</p>
+
+      <ul class="space-y-2" data-checklist>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w1" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Ski erg or row — easy build</span><br><span class="text-xs italic text-slate-500">2:00 · nasal breathing only, conversational. Finish warm, not tired.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w2" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Wrist + front-rack stretch on a rack</span><br><span class="text-xs italic text-slate-500">45 sec, slow &amp; controlled · elbows on the bar, sink until the wrists complain, then back off 10%.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w3" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Deep squat hold with elbow-to-knee pry — 8 pries</span><br><span class="text-xs italic text-slate-500">60 sec total · exhale at the bottom of each pry, heels flat the whole time.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w4" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Half-kneeling ankle rock — 10/side</span><br><span class="text-xs italic text-slate-500">45 sec/side · knee tracks past the toes, heel glued down. 2 sec pause at end range.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w5" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>World's greatest stretch — 5/side</span><br><span class="text-xs italic text-slate-500">60 sec total · 3 sec hold at the top of each rotation, eyes follow the hand.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w6" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Banded lat + thoracic hang-back — 30 sec/side</span><br><span class="text-xs italic text-slate-500">60 sec total · light band only, yesterday's pull-ups already took the lats to task.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w7" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Glute bridge — 15 reps, 2 sec hold at top</span><br><span class="text-xs italic text-slate-500">45 sec · squeeze hard at the top; this is the same finish position as the clean pull.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="w8" class="mt-1 h-5 w-5 shrink-0 accent-emerald-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Muscle snatch-free shoulder circles + band pull-aparts ×20</span><br><span class="text-xs italic text-slate-500">45 sec, brisk · wake the traps up, do not fatigue them.</span></span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= PRIMER ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6" data-section="primer">
+    <div class="bg-gradient-to-r from-lime-500 to-yellow-400 px-4 py-4 md:px-6 flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-xl md:text-2xl font-black text-slate-900">⚡ Primer <span class="text-lime-900 font-semibold text-sm md:text-base">· ~6 min</span></h2>
+      <span class="px-3 py-1 rounded-full bg-slate-900/20 text-slate-900 text-xs md:text-sm font-bold font-mono" data-counter="primer">0 of 0</span>
+    </div>
+
+    <div class="px-4 py-5 md:px-6">
+      <div class="rounded-2xl bg-lime-50 border-2 border-lime-300 p-4 mb-5 text-center" data-timer-card>
+        <div class="text-4xl md:text-5xl font-mono font-black text-lime-700 tabular-nums" data-timer-display="360">06:00</div>
+        <div class="flex gap-2 justify-center mt-3 flex-wrap">
+          <button data-timer-start class="min-h-11 px-5 py-2 rounded-xl bg-lime-600 hover:bg-lime-700 active:bg-lime-800 text-white font-bold text-sm shadow transition">▶ Start</button>
+          <button data-timer-pause class="min-h-11 px-5 py-2 rounded-xl bg-lime-200 hover:bg-lime-300 text-lime-900 font-bold text-sm shadow transition">⏸ Pause</button>
+          <button data-timer-reset class="min-h-11 px-5 py-2 rounded-xl bg-white hover:bg-slate-100 border-2 border-lime-400 text-lime-800 font-bold text-sm shadow transition">↻ Reset</button>
+        </div>
+      </div>
+
+      <p class="text-sm md:text-base text-slate-600 mb-4 italic">Empty bar (20/15 kg) the whole way through. Three rounds, continuous, moving with intent — this is the technical rehearsal for the strength piece, not a workout.</p>
+
+      <ul class="space-y-2" data-checklist>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p1" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 1 — 5 clean deadlifts + 5 high hang shrug-pulls</span><br><span class="text-xs italic text-slate-500">slow &amp; deliberate, ~45 sec to complete · feel the bar stay against the thigh.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p2" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 1 — 5 muscle cleans + 5 front squats</span><br><span class="text-xs italic text-slate-500">moderate, ~40 sec · elbows whip through fast, ribs stacked over the hips.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p3" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 2 — 5 hang power cleans (above the knee)</span><br><span class="text-xs italic text-slate-500">crisp, ~35 sec · full stand between reps, no touch-and-go yet.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p4" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 2 — 5 power cleans from the floor</span><br><span class="text-xs italic text-slate-500">moderate, ~40 sec · 1 sec pause just below the knee on every rep.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p5" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 3 — 3 power cleans @ ~40% + 3 @ ~50%</span><br><span class="text-xs italic text-slate-500">fast, ~50 sec including the plate change · this is the last rehearsal, make it look expensive.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-lime-400 hover:bg-lime-50/60 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="p6" class="mt-1 h-5 w-5 shrink-0 accent-lime-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>10 sec max-effort Ski erg pull, then walk it off</span><br><span class="text-xs italic text-slate-500">~60 sec with recovery · one hard burst to raise heart rate and prime the nervous system.</span></span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= STRENGTH ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6" data-section="strength">
+    <div class="bg-gradient-to-r from-red-700 to-rose-600 px-4 py-4 md:px-6 flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-xl md:text-2xl font-black text-white">🏋️ Strength — Power Clean <span class="text-rose-100 font-semibold text-sm md:text-base">· ~18 min</span></h2>
+      <span class="px-3 py-1 rounded-full bg-white/25 text-white text-xs md:text-sm font-bold font-mono" data-counter="strength">0 of 0</span>
+    </div>
+
+    <div class="px-4 py-5 md:px-6">
+      <div class="rounded-2xl bg-rose-50 border-2 border-rose-200 p-4 mb-5 text-center" data-timer-card>
+        <div class="text-4xl md:text-5xl font-mono font-black text-red-700 tabular-nums" data-timer-display="1080">18:00</div>
+        <div class="flex gap-2 justify-center mt-3 flex-wrap">
+          <button data-timer-start class="min-h-11 px-5 py-2 rounded-xl bg-red-700 hover:bg-red-800 active:bg-red-900 text-white font-bold text-sm shadow transition">▶ Start</button>
+          <button data-timer-pause class="min-h-11 px-5 py-2 rounded-xl bg-rose-200 hover:bg-rose-300 text-rose-900 font-bold text-sm shadow transition">⏸ Pause</button>
+          <button data-timer-reset class="min-h-11 px-5 py-2 rounded-xl bg-white hover:bg-slate-100 border-2 border-rose-300 text-red-800 font-bold text-sm shadow transition">↻ Reset</button>
+        </div>
+      </div>
+
+      <div class="rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-4 py-4 mb-5 shadow-md">
+        <p class="text-xs font-black text-orange-950 uppercase tracking-widest mb-1">🎯 Intended stimulus</p>
+        <p class="text-base font-bold text-orange-950 leading-relaxed">
+          Speed under a moderate-heavy bar. Every one of the 14 reps should look identical — aggressive extension, fast elbows,
+          quiet feet, full front rack. This is <span class="underline decoration-2">not</span> a max-out. If the bar slows down
+          or the catch turns into a soft press-out, that load is the top for today. Leave 1–2 reps of quality in reserve.
+        </p>
+      </div>
+
+      <h3 class="text-lg font-bold text-slate-800 mb-1">A. Power clean — 7 × 2, every 90 seconds</h3>
+      <p class="text-sm text-slate-600 mb-3">Percentages of your <span class="font-semibold">1RM power clean</span>. If you don't know it, use ~60% of your 1RM deadlift as a starting estimate for the top set. Touch-and-go from set 4 onward if the reps stay sharp; otherwise reset the bar on the floor each rep.</p>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-200 mb-5">
+        <table class="w-full text-sm md:text-base">
+          <thead class="bg-slate-800 text-white">
+            <tr>
+              <th class="px-3 py-2.5 text-left font-bold">✓</th>
+              <th class="px-3 py-2.5 text-left font-bold">Set</th>
+              <th class="px-3 py-2.5 text-left font-bold">Reps</th>
+              <th class="px-3 py-2.5 text-left font-bold">Load</th>
+              <th class="px-3 py-2.5 text-left font-bold whitespace-nowrap">Rest / tempo cue</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200" data-checklist>
+            <tr class="hover:bg-rose-50/50"><td class="px-3 py-3"><input type="checkbox" data-check="s1" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>1</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">65%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to the 90 sec beep · reset each rep, 1 sec pause below the knee</td></tr>
+            <tr class="hover:bg-rose-50/50"><td class="px-3 py-3"><input type="checkbox" data-check="s2" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>2</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">70%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to 90 sec · controlled off the floor, violent above the knee</td></tr>
+            <tr class="hover:bg-rose-50/50"><td class="px-3 py-3"><input type="checkbox" data-check="s3" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>3</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">75%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to 90 sec · first set that should feel like real weight</td></tr>
+            <tr class="bg-amber-50 hover:bg-amber-100"><td class="px-3 py-3"><input type="checkbox" data-check="s4" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>4</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">80%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to 90 sec · touch-and-go allowed from here if reps stay crisp</td></tr>
+            <tr class="bg-amber-50 hover:bg-amber-100"><td class="px-3 py-3"><input type="checkbox" data-check="s5" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>5</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">82–85%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to 90 sec · elbows through fast, catch above parallel</td></tr>
+            <tr class="bg-amber-50 hover:bg-amber-100"><td class="px-3 py-3"><input type="checkbox" data-check="s6" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>6</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">85%</td><td class="px-3 py-3 text-xs italic text-slate-500">Rest to 90 sec · hold this load if set 5 felt sticky</td></tr>
+            <tr class="bg-red-50 hover:bg-red-100"><td class="px-3 py-3"><input type="checkbox" data-check="s7" class="h-5 w-5 accent-red-700 cursor-pointer"></td><td class="px-3 py-3 font-bold text-slate-800" data-label>7 · top</td><td class="px-3 py-3">2</td><td class="px-3 py-3 font-mono font-semibold text-red-700">85–88%</td><td class="px-3 py-3 text-xs italic text-slate-500">Best set of the day · only add load if set 6 moved fast</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-lg font-bold text-slate-800 mb-1">B. Trunk finisher — 3 rounds, no rest between movements</h3>
+      <p class="text-sm text-slate-600 mb-3">Fills the last ~5 minutes. Zero spinal loading — the trunk works isometrically so nothing is fried before the MetCon.</p>
+
+      <ul class="space-y-2 mb-5" data-checklist>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-rose-300 hover:bg-rose-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="s8" class="mt-1 h-5 w-5 shrink-0 accent-red-700 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 1 — 12 hollow rocks + 30 sec side plank/side</span><br><span class="text-xs italic text-slate-500">~90 sec · rest 30 sec after · low back pinned to the floor on every rock</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-rose-300 hover:bg-rose-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="s9" class="mt-1 h-5 w-5 shrink-0 accent-red-700 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 2 — 12 hollow rocks + 30 sec side plank/side</span><br><span class="text-xs italic text-slate-500">~90 sec · rest 30 sec after · breathe through the plank, don't hold your breath</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-rose-300 hover:bg-rose-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="s10" class="mt-1 h-5 w-5 shrink-0 accent-red-700 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Round 3 — 12 hollow rocks + 30 sec side plank/side</span><br><span class="text-xs italic text-slate-500">~90 sec · then move straight into MetCon setup</span></span></label></li>
+      </ul>
+
+      <div class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+        <h4 class="text-sm font-black text-slate-800 uppercase tracking-wide mb-2">Scaling</h4>
+        <div class="overflow-x-auto rounded-lg border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-200 text-slate-800"><tr><th class="px-3 py-2 text-left font-bold">Level</th><th class="px-3 py-2 text-left font-bold">Strength piece</th></tr></thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr><td class="px-3 py-2.5 font-bold text-emerald-700 whitespace-nowrap">Beginner</td><td class="px-3 py-2.5 text-slate-700">7 × 3 <span class="font-semibold">hang power cleans</span> from above the knee at 55–65%, every 90 sec. Removes the floor pull entirely — learn the second pull first.</td></tr>
+              <tr><td class="px-3 py-2.5 font-bold text-sky-700 whitespace-nowrap">Intermediate</td><td class="px-3 py-2.5 text-slate-700">As written — 7 × 2 from the floor, 65 → 88%.</td></tr>
+              <tr><td class="px-3 py-2.5 font-bold text-red-700 whitespace-nowrap">Advanced</td><td class="px-3 py-2.5 text-slate-700">Same ladder but every set is <span class="font-semibold">touch-and-go</span>, and add an 8th set at 88–90%. Follow with 3 × 3 clean pulls at 100–105% of your top clean.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="text-sm font-black text-slate-800 uppercase tracking-wide mt-4 mb-2">Substitutions</h4>
+        <ul class="text-sm text-slate-700 space-y-1.5">
+          <li>• <span class="font-semibold">No bumper plates / can't drop the bar?</span> → 7 × 3 <span class="font-semibold">clean high pulls</span> at 80% + 3 × 5 barbell RDL.</li>
+          <li>• <span class="font-semibold">Wrists or elbows unhappy in the rack?</span> → 7 × 3 <span class="font-semibold">clean pulls</span> at 90–100% (no catch) or 7 × 5 heavy dumbbell hang power cleans.</li>
+          <li>• <span class="font-semibold">Low back still sore from Monday?</span> → run the whole ladder from the hang and cap at 75%.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METCON ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6" data-section="metcon">
+    <div class="bg-gradient-to-r from-orange-600 to-amber-500 px-4 py-4 md:px-6 flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-xl md:text-2xl font-black text-white">💥 Conditioning — "Ground &amp; Pound" <span class="text-amber-100 font-semibold text-sm md:text-base">· ~20 min</span></h2>
+      <span class="px-3 py-1 rounded-full bg-white/25 text-white text-xs md:text-sm font-bold font-mono" data-counter="metcon">0 of 0</span>
+    </div>
+
+    <div class="px-4 py-5 md:px-6">
+      <!-- stopwatch -->
+      <div class="rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border-2 border-orange-300 p-4 mb-5 text-center">
+        <p class="text-xs font-black text-orange-800 uppercase tracking-widest mb-1">Stopwatch · hit Lap each round</p>
+        <div id="swDisplay" class="text-4xl md:text-5xl font-mono font-black text-orange-700 tabular-nums">00:00.0</div>
+        <div class="flex gap-2 justify-center mt-3 flex-wrap">
+          <button id="swStart" class="min-h-11 px-5 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-bold text-sm shadow transition">▶ Start</button>
+          <button id="swLap" class="min-h-11 px-5 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-orange-950 font-bold text-sm shadow transition">⏱ Lap</button>
+          <button id="swReset" class="min-h-11 px-5 py-2 rounded-xl bg-white hover:bg-slate-100 border-2 border-orange-300 text-orange-800 font-bold text-sm shadow transition">↻ Reset</button>
+        </div>
+        <p class="text-xs text-orange-800 mt-2 font-semibold">Time cap 18:00 · target 13:00–16:00</p>
+        <ul id="lapList" class="mt-3 space-y-1 text-left"></ul>
+      </div>
+
+      <div class="rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-4 py-4 mb-5 shadow-md">
+        <p class="text-xs font-black text-orange-950 uppercase tracking-widest mb-1">🎯 Intended stimulus</p>
+        <p class="text-base font-bold text-orange-950 leading-relaxed">
+          A steady, ugly grind — not a sprint. Four low-skill stations, none of which you've touched this week. The sandbag
+          should move in <span class="underline decoration-2">unbroken singles with no hesitation</span>, the sled should be a
+          hard walk not a fight, and the Ski should be paced so you can start the sandbag the second you drop the handle.
+          Fastest and slowest round within 25 seconds. If round 1 is your fastest by more than 30 sec, you went out too hot.
+        </p>
+      </div>
+
+      <p class="text-base font-bold text-slate-800 mb-1">4 rounds for time · 18-minute cap</p>
+      <p class="text-sm text-slate-600 mb-4 italic">Check off each round as you finish it.</p>
+
+      <div class="rounded-xl border-2 border-orange-200 bg-orange-50/40 px-4 py-4 mb-5">
+        <ul class="space-y-3 text-base text-slate-800">
+          <li><span class="font-black text-orange-700">15/12 cal</span> Ski erg<br><span class="text-xs italic text-slate-500">Aim ~50–55 sec · long, patient strokes. Do not redline here — this is the recovery station in disguise.</span></li>
+          <li><span class="font-black text-orange-700">8</span> Sandbag / D-ball over-the-shoulder · 70/50 lb (32/23 kg)<br><span class="text-xs italic text-slate-500">Aim ~45 sec · alternate shoulders. Hinge to lift, do not squat it. Deliberately light — this is the clean pull at 20% load.</span></li>
+          <li><span class="font-black text-orange-700">40 m</span> Sled push · moderate (bodyweight-ish on the sled)<br><span class="text-xs italic text-slate-500">Aim ~50 sec for 20 m down + 20 m back · low hands, long strides, never stop moving.</span></li>
+          <li><span class="font-black text-orange-700">15</span> Weighted sit-ups · 10/5 kg plate at the chest<br><span class="text-xs italic text-slate-500">Aim ~40 sec unbroken · touch the plate to the floor overhead-ish behind you, then to the knees.</span></li>
+        </ul>
+      </div>
+
+      <ul class="space-y-2 mb-5" data-checklist>
+        <li><label class="flex gap-3 items-center rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:bg-orange-50 px-3 py-3.5 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="m1" class="h-5 w-5 shrink-0 accent-orange-600 cursor-pointer"><span class="text-base font-bold text-slate-800" data-label>Round 1 complete <span class="font-normal text-sm text-slate-500 italic">— target ~3:10</span></span></label></li>
+        <li><label class="flex gap-3 items-center rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:bg-orange-50 px-3 py-3.5 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="m2" class="h-5 w-5 shrink-0 accent-orange-600 cursor-pointer"><span class="text-base font-bold text-slate-800" data-label>Round 2 complete <span class="font-normal text-sm text-slate-500 italic">— target ~3:25</span></span></label></li>
+        <li><label class="flex gap-3 items-center rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:bg-orange-50 px-3 py-3.5 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="m3" class="h-5 w-5 shrink-0 accent-orange-600 cursor-pointer"><span class="text-base font-bold text-slate-800" data-label>Round 3 complete <span class="font-normal text-sm text-slate-500 italic">— target ~3:35 · this is the one that decides your score</span></span></label></li>
+        <li><label class="flex gap-3 items-center rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:bg-orange-50 px-3 py-3.5 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="m4" class="h-5 w-5 shrink-0 accent-orange-600 cursor-pointer"><span class="text-base font-bold text-slate-800" data-label>Round 4 complete <span class="font-normal text-sm text-slate-500 italic">— empty the tank, nothing left after this</span></span></label></li>
+      </ul>
+
+      <div class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 mb-4">
+        <h4 class="text-sm font-black text-slate-800 uppercase tracking-wide mb-2">Scaling</h4>
+        <div class="overflow-x-auto rounded-lg border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-200 text-slate-800"><tr><th class="px-3 py-2 text-left font-bold">Level</th><th class="px-3 py-2 text-left font-bold">Prescription</th></tr></thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr><td class="px-3 py-2.5 font-bold text-emerald-700 whitespace-nowrap">Beginner</td><td class="px-3 py-2.5 text-slate-700"><span class="font-semibold">3 rounds</span> · 10/8 cal Ski · 6 sandbag over-shoulder @ 40/25 lb · 30 m light sled · 15 unweighted sit-ups. Cap 15:00.</td></tr>
+              <tr><td class="px-3 py-2.5 font-bold text-sky-700 whitespace-nowrap">Intermediate</td><td class="px-3 py-2.5 text-slate-700">As written — 4 rounds, 15/12 cal, 70/50 lb bag, 40 m sled, 15 weighted sit-ups. Cap 18:00.</td></tr>
+              <tr><td class="px-3 py-2.5 font-bold text-red-700 whitespace-nowrap">Advanced</td><td class="px-3 py-2.5 text-slate-700"><span class="font-semibold">5 rounds</span> · 20/16 cal Ski · 10 sandbag @ 100/70 lb · 40 m heavy sled · 20 weighted sit-ups @ 15/10 kg. Cap 22:00.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="text-sm font-black text-slate-800 uppercase tracking-wide mt-4 mb-2">Substitutions</h4>
+        <ul class="text-sm text-slate-700 space-y-1.5">
+          <li>• <span class="font-semibold">No Ski erg</span> → 18/14 cal row, 20/16 cal Echo bike, or 200 m run.</li>
+          <li>• <span class="font-semibold">No sandbag / D-ball</span> → 8 heavy dumbbell hang power cleans (2 × 50/35 lb), or 8 single-arm KB clean &amp; shoulder alternating.</li>
+          <li>• <span class="font-semibold">No sled</span> → 40 m heavy farmer carry (2 × 70/53 lb), 40 m double-KB front-rack carry, or 30 sec on the Assault runner.</li>
+          <li>• <span class="font-semibold">No plate for sit-ups</span> → 15 GHD sit-ups (if you're conditioned to them) or 20 AbMat sit-ups.</li>
+          <li>• <span class="font-semibold">Small space / home gym</span> → swap Ski for 40 double-unders and sled for 40 m suitcase carry.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COOLDOWN ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-6" data-section="cooldown">
+    <div class="bg-gradient-to-r from-indigo-600 to-violet-500 px-4 py-4 md:px-6 flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-xl md:text-2xl font-black text-white">🧊 Cooldown <span class="text-indigo-100 font-semibold text-sm md:text-base">· ~4 min</span></h2>
+      <span class="px-3 py-1 rounded-full bg-white/25 text-white text-xs md:text-sm font-bold font-mono" data-counter="cooldown">0 of 0</span>
+    </div>
+
+    <div class="px-4 py-5 md:px-6">
+      <div class="rounded-2xl bg-indigo-50 border-2 border-indigo-200 p-4 mb-5 text-center" data-timer-card>
+        <div class="text-4xl md:text-5xl font-mono font-black text-indigo-700 tabular-nums" data-timer-display="240">04:00</div>
+        <div class="flex gap-2 justify-center mt-3 flex-wrap">
+          <button data-timer-start class="min-h-11 px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-sm shadow transition">▶ Start</button>
+          <button data-timer-pause class="min-h-11 px-5 py-2 rounded-xl bg-indigo-200 hover:bg-indigo-300 text-indigo-900 font-bold text-sm shadow transition">⏸ Pause</button>
+          <button data-timer-reset class="min-h-11 px-5 py-2 rounded-xl bg-white hover:bg-slate-100 border-2 border-indigo-300 text-indigo-800 font-bold text-sm shadow transition">↻ Reset</button>
+        </div>
+      </div>
+
+      <ul class="space-y-2" data-checklist>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="c1" class="mt-1 h-5 w-5 shrink-0 accent-indigo-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Easy Ski or walk</span><br><span class="text-xs italic text-slate-500">60 sec · let the heart rate drift down before you lie on the floor.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="c2" class="mt-1 h-5 w-5 shrink-0 accent-indigo-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Couch stretch</span><br><span class="text-xs italic text-slate-500">hold 45 sec/side · squeeze the glute of the stretching side to protect the low back.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="c3" class="mt-1 h-5 w-5 shrink-0 accent-indigo-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Seated forward fold — hamstrings</span><br><span class="text-xs italic text-slate-500">hold 45 sec · exhale into it, don't bounce. The sandbag pulls hit these hard.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="c4" class="mt-1 h-5 w-5 shrink-0 accent-indigo-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Wrist flexor + triceps stretch (front rack recovery)</span><br><span class="text-xs italic text-slate-500">hold 30 sec/side · fingers pointing back, gentle pressure only.</span></span></label></li>
+        <li><label class="flex gap-3 items-start rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50 px-3 py-3 min-h-11 cursor-pointer transition"><input type="checkbox" data-check="c5" class="mt-1 h-5 w-5 shrink-0 accent-indigo-600 cursor-pointer"><span><span class="text-base font-semibold text-slate-800" data-label>Supine box breathing — 4 in / 4 hold / 4 out / 4 hold</span><br><span class="text-xs italic text-slate-500">60 sec, ~4 cycles · feet up on a bench, close the session out flat.</span></span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SUMMARY ================= -->
+  <section class="rounded-2xl shadow-lg bg-white overflow-hidden mb-8">
+    <div class="bg-gradient-to-r from-slate-800 to-slate-600 px-4 py-4 md:px-6">
+      <h2 class="text-xl md:text-2xl font-black text-white">📊 Session Summary</h2>
+    </div>
+    <div class="px-4 py-5 md:px-6 space-y-5">
+
+      <div class="rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 px-4 py-5 text-center">
+        <p class="text-xs font-black text-slate-300 uppercase tracking-widest">Total completion</p>
+        <p id="summaryPct" class="text-5xl md:text-6xl font-black text-orange-400 tabular-nums mt-1">0%</p>
+        <p id="summaryCount" class="text-sm text-slate-300 font-mono mt-1">0 of 0 items</p>
+      </div>
+
+      <div>
+        <h3 class="text-base md:text-lg font-bold text-slate-800 mb-2">Muscle groups hit today</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-red-100 text-red-800 text-sm font-bold">Glutes</span>
+          <span class="px-3 py-1.5 rounded-lg bg-red-100 text-red-800 text-sm font-bold">Hamstrings</span>
+          <span class="px-3 py-1.5 rounded-lg bg-orange-100 text-orange-800 text-sm font-bold">Quads</span>
+          <span class="px-3 py-1.5 rounded-lg bg-amber-100 text-amber-800 text-sm font-bold">Traps &amp; upper back</span>
+          <span class="px-3 py-1.5 rounded-lg bg-lime-100 text-lime-800 text-sm font-bold">Spinal erectors</span>
+          <span class="px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-bold">Trunk / obliques</span>
+          <span class="px-3 py-1.5 rounded-lg bg-sky-100 text-sky-800 text-sm font-bold">Grip</span>
+          <span class="px-3 py-1.5 rounded-lg bg-violet-100 text-violet-800 text-sm font-bold">Calves</span>
+          <span class="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-800 text-sm font-bold">Lungs</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-base md:text-lg font-bold text-slate-800 mb-2">The week so far</h3>
+        <div class="overflow-x-auto rounded-lg border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-200 text-slate-800"><tr><th class="px-3 py-2 text-left font-bold">Day</th><th class="px-3 py-2 text-left font-bold">Primary pattern</th></tr></thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr><td class="px-3 py-2 font-semibold whitespace-nowrap">Mon 17</td><td class="px-3 py-2 text-slate-700">Deadlift · burpee box jump-over engine</td></tr>
+              <tr><td class="px-3 py-2 font-semibold whitespace-nowrap">Tue 18</td><td class="px-3 py-2 text-slate-700">Bench + row · bike / lunge engine</td></tr>
+              <tr><td class="px-3 py-2 font-semibold whitespace-nowrap">Wed 19</td><td class="px-3 py-2 text-slate-700">Back squat · row / swing / T2B</td></tr>
+              <tr><td class="px-3 py-2 font-semibold whitespace-nowrap">Thu 20</td><td class="px-3 py-2 text-slate-700">Weighted pull-up + DB press · bike engine</td></tr>
+              <tr class="bg-amber-50"><td class="px-3 py-2 font-black whitespace-nowrap">Fri 21</td><td class="px-3 py-2 text-slate-800 font-semibold">Power clean · Ski / sandbag / sled engine</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="rounded-xl border-l-4 border-amber-500 bg-amber-50 px-4 py-4">
+        <h3 class="text-sm font-black text-amber-900 uppercase tracking-wide mb-2">📅 Note for tomorrow</h3>
+        <p class="text-sm md:text-base text-slate-700 leading-relaxed">
+          Five consecutive training days with all five major patterns loaded — hinge, horizontal press, squat, vertical pull,
+          explosive pull. Saturday should be <span class="font-bold">active recovery or a long, easy aerobic piece</span>:
+          30–45 min at conversational pace on the bike, rower or a trail, plus 10 min of hip and thoracic mobility. No barbell.
+          If you'd rather train hard on Saturday, make it a <span class="font-semibold">bodyweight-only chipper</span>
+          (air squats, push-ups, ring rows, sit-ups, running) so nothing heavy touches the spine for a third time this week.
+          Next week opens with front squat or a Grace-style ground-to-front-rack couplet, and unilateral leg work is now the
+          longest-missing piece — Bulgarian split squats or single-leg RDLs are due Monday or Tuesday.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <p class="text-center text-xs text-slate-400 pb-6">Generated 2026-08-21 · barbell stays at or below the front rack</p>
+</div>
+
+<script>
+(function () {
+  var DATE_KEY = 'crossfit-2026-08-21';
+
+  /* ---------- Web Audio beep ---------- */
+  var audioCtx = null;
+  function beep() {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+      [0, 0.28, 0.56].forEach(function (offset) {
+        var o = audioCtx.createOscillator();
+        var g = audioCtx.createGain();
+        o.type = 'sine';
+        o.frequency.value = 880;
+        g.gain.setValueAtTime(0.0001, audioCtx.currentTime + offset);
+        g.gain.exponentialRampToValueAtTime(0.35, audioCtx.currentTime + offset + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + offset + 0.22);
+        o.connect(g); g.connect(audioCtx.destination);
+        o.start(audioCtx.currentTime + offset);
+        o.stop(audioCtx.currentTime + offset + 0.24);
+      });
+    } catch (e) { /* audio unavailable */ }
+  }
+
+  function fmt(sec) {
+    sec = Math.max(0, Math.round(sec));
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  /* ---------- Countdown timers ---------- */
+  document.querySelectorAll('[data-timer-card]').forEach(function (card) {
+    var display = card.querySelector('[data-timer-display]');
+    var total = parseInt(display.getAttribute('data-timer-display'), 10);
+    var remaining = total, handle = null;
+
+    function render() { display.textContent = fmt(remaining); }
+
+    function flash() {
+      var n = 0;
+      var f = setInterval(function () {
+        card.classList.toggle('ring-4');
+        card.classList.toggle('ring-red-500');
+        card.classList.toggle('bg-red-100');
+        if (++n >= 8) {
+          clearInterval(f);
+          card.classList.remove('ring-4', 'ring-red-500', 'bg-red-100');
+        }
+      }, 250);
+    }
+
+    function stop() { if (handle) { clearInterval(handle); handle = null; } }
+
+    card.querySelector('[data-timer-start]').addEventListener('click', function () {
+      if (handle) return;
+      beep.call(null); // unlock audio context on user gesture
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      handle = setInterval(function () {
+        remaining -= 1;
+        if (remaining <= 0) { remaining = 0; render(); stop(); beep(); flash(); return; }
+        render();
+      }, 1000);
+    });
+    card.querySelector('[data-timer-pause]').addEventListener('click', stop);
+    card.querySelector('[data-timer-reset]').addEventListener('click', function () {
+      stop(); remaining = total; render();
+      card.classList.remove('ring-4', 'ring-red-500', 'bg-red-100');
+    });
+
+    card._resetTimer = function () { stop(); remaining = total; render(); };
+    render();
+  });
+
+  /* Silence the accidental beep on the very first Start click */
+  (function () {
+    var origBeep = beep;
+    var first = true;
+    beep = function () { if (first) { first = false; try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} return; } origBeep(); };
+  })();
+
+  /* ---------- Stopwatch + laps ---------- */
+  var swDisplay = document.getElementById('swDisplay');
+  var lapList = document.getElementById('lapList');
+  var swHandle = null, swStartTime = 0, swElapsed = 0, lastLap = 0, lapCount = 0;
+
+  function swFmt(ms) {
+    var t = Math.max(0, ms);
+    var m = Math.floor(t / 60000);
+    var s = Math.floor((t % 60000) / 1000);
+    var d = Math.floor((t % 1000) / 100);
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + '.' + d;
+  }
+  function swRender() { swDisplay.textContent = swFmt(swElapsed + (swHandle ? Date.now() - swStartTime : 0)); }
+
+  document.getElementById('swStart').addEventListener('click', function () {
+    if (swHandle) { swElapsed += Date.now() - swStartTime; clearInterval(swHandle); swHandle = null; this.textContent = '▶ Resume'; }
+    else { swStartTime = Date.now(); swHandle = setInterval(swRender, 100); this.textContent = '⏸ Pause'; }
+    swRender();
+  });
+
+  document.getElementById('swLap').addEventListener('click', function () {
+    var now = swElapsed + (swHandle ? Date.now() - swStartTime : 0);
+    if (now === 0) return;
+    lapCount += 1;
+    var split = now - lastLap;
+    lastLap = now;
+    var li = document.createElement('li');
+    li.className = 'flex justify-between items-center rounded-lg bg-white/80 border border-orange-200 px-3 py-2 text-sm font-mono';
+    li.innerHTML = '<span class="font-bold text-orange-800">Round ' + lapCount + '</span>' +
+                   '<span class="text-slate-700">split <span class="font-bold text-orange-700">' + swFmt(split) + '</span></span>' +
+                   '<span class="text-slate-500">total ' + swFmt(now) + '</span>';
+    lapList.appendChild(li);
+  });
+
+  document.getElementById('swReset').addEventListener('click', function () {
+    if (swHandle) clearInterval(swHandle);
+    swHandle = null; swElapsed = 0; lastLap = 0; lapCount = 0;
+    document.getElementById('swStart').textContent = '▶ Start';
+    lapList.innerHTML = '';
+    swRender();
+  });
+  swRender();
+
+  /* ---------- Checkboxes + persistence ---------- */
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[data-check]'));
+
+  function styleRow(box) {
+    var label = box.closest('label') || box.closest('tr');
+    if (!label) return;
+    var text = label.querySelector('[data-label]');
+    if (box.checked) {
+      if (text) text.classList.add('line-through', 'text-slate-400');
+      label.classList.add('opacity-50');
+    } else {
+      if (text) text.classList.remove('line-through', 'text-slate-400');
+      label.classList.remove('opacity-50');
+    }
+  }
+
+  function updateCounters() {
+    document.querySelectorAll('[data-section]').forEach(function (sec) {
+      var name = sec.getAttribute('data-section');
+      var secBoxes = sec.querySelectorAll('input[data-check]');
+      var done = sec.querySelectorAll('input[data-check]:checked').length;
+      var badge = document.querySelector('[data-counter="' + name + '"]');
+      if (badge) badge.textContent = done + ' of ' + secBoxes.length;
+    });
+    var total = boxes.length;
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    var pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById('globalPct').textContent = pct + '%';
+    document.getElementById('globalBar').style.width = pct + '%';
+    document.getElementById('globalCount').textContent = done + ' of ' + total + ' items complete';
+    document.getElementById('summaryPct').textContent = pct + '%';
+    document.getElementById('summaryCount').textContent = done + ' of ' + total + ' items';
+  }
+
+  function save() {
+    var state = {};
+    boxes.forEach(function (b) { state[b.getAttribute('data-check')] = b.checked; });
+    try { localStorage.setItem(DATE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function load() {
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(DATE_KEY) || '{}'); } catch (e) {}
+    boxes.forEach(function (b) {
+      b.checked = !!state[b.getAttribute('data-check')];
+      styleRow(b);
+    });
+    updateCounters();
+  }
+
+  boxes.forEach(function (b) {
+    b.addEventListener('change', function () { styleRow(b); updateCounters(); save(); });
+  });
+
+  /* ---------- Reset session ---------- */
+  document.getElementById('resetSession').addEventListener('click', function () {
+    if (!confirm('Clear all checkboxes, timers and laps for today?')) return;
+    boxes.forEach(function (b) { b.checked = false; styleRow(b); });
+    try { localStorage.removeItem(DATE_KEY); } catch (e) {}
+    updateCounters();
+    document.querySelectorAll('[data-timer-card]').forEach(function (c) { if (c._resetTimer) c._resetTimer(); });
+    document.getElementById('swReset').click();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  load();
+})();
+</script>
+
+</body>
+</html>
