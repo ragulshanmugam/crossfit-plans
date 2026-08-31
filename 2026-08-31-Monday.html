@@ -787,21 +787,9 @@
     });
   }
 
-  document.getElementById("swStart").addEventListener("click", function () {
-    if (sw.handle) return;
-    if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
-    sw.start = Date.now();
-    sw.handle = setInterval(renderSw, 100);
-    this.textContent = "⏸ Pause";
-    var self = this;
-    self.onclick = null;
-  });
-
-  // simpler start/pause toggle
+  // start / pause toggle
   (function () {
-    var btn = document.getElementById("swStart");
-    var newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
+    var newBtn = document.getElementById("swStart");
     newBtn.addEventListener("click", function () {
       if (sw.handle) {
         clearInterval(sw.handle);
